@@ -10,7 +10,7 @@ import net.minecraft.util.math.ChunkPos;
 import java.util.Arrays;
 
 public class Renderer {
-    public static final byte BACKGROUND_COLOR = (byte) (MapColor.GRAY.id * 4 + MapColor.Brightness.NORMAL.id);
+    public static final byte BACKGROUND_COLOR = (byte) (MapColor.GRAY.id * 2 + MapColor.Brightness.NORMAL.id);
     public static final byte PLAYER_GRID_COLOR = (byte) (MapColor.BRIGHT_RED.id * 4 + MapColor.Brightness.NORMAL.id);
     public static final byte PLAYER_SLIME_GRID_COLOR = (byte) (MapColor.YELLOW.id * 4 + MapColor.Brightness.NORMAL.id);
     public static final byte SLIME_CHUNK_COLOR = (byte) (MapColor.LIME.id * 4 + MapColor.Brightness.NORMAL.id);

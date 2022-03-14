@@ -1,9 +1,9 @@
-package top.sunbread.scmpp;
+package cc.harmo.scmpp;
 
+import cc.harmo.scmpp.util.Util;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import top.sunbread.scmpp.util.Util;
 
 import java.util.Objects;
 

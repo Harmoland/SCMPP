@@ -1,16 +1,16 @@
-package top.sunbread.scmpp;
+package cc.harmo.scmpp;
 
+import cc.harmo.scmpp.util.GridPos;
+import cc.harmo.scmpp.util.Util;
 import net.minecraft.block.MapColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.ChunkPos;
-import top.sunbread.scmpp.util.GridPos;
-import top.sunbread.scmpp.util.Util;
 
 import java.util.Arrays;
 
 public class Renderer {
-    public static final byte BACKGROUND_COLOR = (byte) (MapColor.GRAY.id * 4 + MapColor.Brightness.NORMAL.id);
+    public static final byte BACKGROUND_COLOR = (byte) (MapColor.GRAY.id * 2 + MapColor.Brightness.NORMAL.id);
     public static final byte PLAYER_GRID_COLOR = (byte) (MapColor.BRIGHT_RED.id * 4 + MapColor.Brightness.NORMAL.id);
     public static final byte PLAYER_SLIME_GRID_COLOR = (byte) (MapColor.YELLOW.id * 4 + MapColor.Brightness.NORMAL.id);
     public static final byte SLIME_CHUNK_COLOR = (byte) (MapColor.LIME.id * 4 + MapColor.Brightness.NORMAL.id);

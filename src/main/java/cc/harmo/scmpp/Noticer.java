@@ -1,4 +1,4 @@
-package top.sunbread.scmpp;
+package cc.harmo.scmpp;
 
 import net.minecraft.item.map.MapState;
 import net.minecraft.network.packet.s2c.play.MapUpdateS2CPacket;

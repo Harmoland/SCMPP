@@ -1,4 +1,4 @@
-package top.sunbread.scmpp;
+package cc.harmo.scmpp;
 
 public interface ScmppTracked {
 

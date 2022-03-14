@@ -1,4 +1,4 @@
-package top.sunbread.scmpp;
+package cc.harmo.scmpp;
 
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;

@@ -1,11 +1,11 @@
-package top.sunbread.scmpp;
+package cc.harmo.scmpp;
 
+import cc.harmo.scmpp.util.GridPos;
+import cc.harmo.scmpp.util.Util;
 import net.minecraft.block.MapColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.ChunkPos;
-import top.sunbread.scmpp.util.GridPos;
-import top.sunbread.scmpp.util.Util;
 
 import java.util.Arrays;
 

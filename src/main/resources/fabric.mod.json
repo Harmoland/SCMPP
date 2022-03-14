@@ -13,7 +13,7 @@
   "environment": "server",
   "entrypoints": {
     "main": [
-      "top.sunbread.scmpp.Scmpp"
+      "cc.harmo.scmpp.Scmpp"
     ]
   },
   "mixins": [

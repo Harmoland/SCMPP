@@ -1,4 +1,4 @@
-package top.sunbread.scmpp.util;
+package cc.harmo.scmpp.util;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;

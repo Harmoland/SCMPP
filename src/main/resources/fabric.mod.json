@@ -2,14 +2,19 @@
   "schemaVersion": 1,
   "id": "scmpp",
   "version": "${version}",
+
   "name": "SlimeChunkMap++",
-  "description": "",
+  "description": "SlimeChunkMap++ is a mod that make players can find slime chunk using a map.",
   "authors": [
     "Sunbread"
   ],
-  "contact": {},
-  "license": "All-Rights-Reserved",
+  "contact": {
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT",
   "icon": "assets/scmpp/icon.png",
+
   "environment": "server",
   "entrypoints": {
     "main": [
@@ -20,7 +25,7 @@
     "scmpp.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.8",
-    "minecraft": ">=1.18"
+    "fabricloader": ">=0.13.3",
+    "minecraft": ">=1.18.2"
   }
 }

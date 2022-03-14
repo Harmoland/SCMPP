@@ -23,7 +23,7 @@ public class Util {
     }
 
     public static boolean hasSlimeSpawnEntry(ServerWorld world, BlockPos pos) {
-        return world.getBiome(pos).getSpawnSettings().getSpawnEntries(SpawnGroup.MONSTER).getEntries().
+        return world.getBiome(pos).value().getSpawnSettings().getSpawnEntries(SpawnGroup.MONSTER).getEntries().
                 stream().anyMatch(it -> it.type == EntityType.SLIME);
     }
 

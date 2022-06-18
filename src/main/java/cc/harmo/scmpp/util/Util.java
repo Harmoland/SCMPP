@@ -8,8 +8,8 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.random.ChunkRandom;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.random.ChunkRandom;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -34,25 +34,10 @@ public class Util {
                 stream().anyMatch(it -> it.type == EntityType.SLIME);
     }
 
-    /**
-     * 对象转json文本
-     *
-     * @param o
-     * @param type
-     * @return
-     */
     public static String toJson(Object o, Type type) {
         return new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create().toJson(o, type);
     }
 
-    /**
-     * 文本转json对象
-     *
-     * @param json
-     * @param type
-     * @param <T>
-     * @return
-     */
     public static <T> T toClass(String json, Type type) {
         if (json == null) {
             return null;
@@ -62,9 +47,6 @@ public class Util {
         return new GsonBuilder().setPrettyPrinting().create().fromJson(jsonReader, type);
     }
 
-    /**
-     * 加载文件
-     */
     public static <T> T readFile(File file, Type type) throws IOException {
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdirs();
@@ -78,9 +60,6 @@ public class Util {
         return toClass(json, type);
     }
 
-    /**
-     * 保存文件
-     */
     public static void writeFile(File file, Object obj) throws IOException {
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdirs();
@@ -103,10 +82,6 @@ public class Util {
 
     /**
      * 写入文件
-     *
-     * @param file
-     * @param str
-     * @return
      */
     public static void write(File file, String str) throws IOException {
         if (!file.exists()) {
@@ -121,9 +96,6 @@ public class Util {
 
     /**
      * 文件读取
-     *
-     * @param file
-     * @return
      */
     public static String read(File file) throws IOException {
         if (!file.exists()) {

@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class ScmppConfig {
-    private Map<String, Long> data = new HashMap<>();
+    private final Map<String, Long> data = new HashMap<>();
 
     public static void save(ScmppConfig scmppConfig) throws IOException {
         Util.writeFile(Scmpp.configFile, scmppConfig);
@@ -27,8 +27,6 @@ public class ScmppConfig {
 
     /**
      * 是否可以操作
-     *
-     * @param uuid
      */
     public boolean isEnable(UUID uuid) {
         long time = 3 * 24 * 60 * 60 * 1000;//必须超过此时间
@@ -41,8 +39,6 @@ public class ScmppConfig {
 
     /**
      * 更新某人的操作时间
-     *
-     * @param uuid
      */
     public void update(UUID uuid) {
         data.put(uuid.toString(), System.currentTimeMillis());

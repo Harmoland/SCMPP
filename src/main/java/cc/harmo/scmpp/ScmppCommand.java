@@ -18,7 +18,7 @@ import static cc.harmo.scmpp.Scmpp.getVersion;
 
 public class ScmppCommand {
     public static int scmpp(CommandContext<ServerCommandSource> context, boolean isInitSuccess) throws CommandSyntaxException {
-        MutableText text = Text.literal("\nSlimeChunkMap++ v" + getVersion());
+        MutableText text = Text.literal("SlimeChunkMap++ v" + getVersion());
         if (!isInitSuccess) {
             text.append(Text.literal("\n配置文件加载失败，部分指令将不可用！").formatted(Formatting.RED, Formatting.BOLD));
         }
@@ -30,8 +30,8 @@ public class ScmppCommand {
         } else {
             text.append(Text.literal("获得一个史莱姆区块地图\n").formatted(Formatting.GREEN));
         }
-        text.append(Text.literal("--------------------------\n").formatted(Formatting.GRAY));
-        context.getSource().sendFeedback(text, false);
+        text.append(Text.literal("--------------------------").formatted(Formatting.GRAY));
+        context.getSource().sendFeedback(() -> text, false);
         return com.mojang.brigadier.Command.SINGLE_SUCCESS;
     }
 
@@ -45,7 +45,7 @@ public class ScmppCommand {
             if (player.getInventory().getEmptySlot() == -1) {
                 MutableText text = Text.literal("[SlimeChunkMap++] ").formatted(Formatting.GRAY);
                 text.append(Text.literal("你的背包已满，请清理背包后再试！").formatted(Formatting.RED));
-                source.sendFeedback(text, false);
+                source.sendFeedback(() -> text, false);
                 return Command.SINGLE_SUCCESS;
             }
             // 给玩家一个地图
@@ -57,14 +57,14 @@ public class ScmppCommand {
             scmppConfig.update(player.getUuid());
             MutableText text = Text.literal("[SlimeChunkMap++] ").formatted(Formatting.GRAY);
             text.append(Text.literal("一个史莱姆区块地图已发放到你的背包！").formatted(Formatting.GREEN));
-            source.sendFeedback(text, false);
+            source.sendFeedback(() -> text, false);
             player.sendMessage(Text.literal("一个史莱姆区块地图已发放到你的背包").formatted(Formatting.GREEN, Formatting.BOLD), true);
         } else {
             MutableText text = Text.literal("[SlimeChunkMap++] ").formatted(Formatting.GRAY);
             text.append(Text.literal(
-                    "你已经获得过一个史莱姆区块地图了！请" + scmppConfig.getCoolingTime(player.getUuid()) + "天后再来噢"
+                    "你已经获得过一个史莱姆区块地图了! 请" + scmppConfig.getCoolingTime(player.getUuid()) + "后再来噢"
             ).formatted(Formatting.LIGHT_PURPLE));
-            source.sendFeedback(text, false);
+            source.sendFeedback(() -> text, false);
         }
         return Command.SINGLE_SUCCESS;
     }

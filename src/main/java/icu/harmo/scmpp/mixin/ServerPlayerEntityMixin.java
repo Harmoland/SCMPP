@@ -1,8 +1,8 @@
-package cc.harmo.scmpp.mixin;
+package icu.harmo.scmpp.mixin;
 
-import cc.harmo.scmpp.LocationInfo;
-import cc.harmo.scmpp.ScmppTracked;
 import com.mojang.authlib.GameProfile;
+import icu.harmo.scmpp.LocationInfo;
+import icu.harmo.scmpp.ScmppTracked;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;

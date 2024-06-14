@@ -1,4 +1,4 @@
-package cc.harmo.scmpp.util;
+package icu.harmo.scmpp.util;
 
 import com.mojang.brigadier.Message;
 import com.mojang.brigadier.exceptions.CommandExceptionType;

@@ -1,4 +1,4 @@
-package cc.harmo.scmpp;
+package icu.harmo.scmpp;
 
 public interface ScmppTracked {
 

@@ -1,8 +1,8 @@
-package cc.harmo.scmpp.util;
+package icu.harmo.scmpp.util;
 
-import cc.harmo.scmpp.Scmpp;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
+import icu.harmo.scmpp.Scmpp;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.server.world.ServerWorld;

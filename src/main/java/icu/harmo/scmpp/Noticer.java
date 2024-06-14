@@ -1,4 +1,4 @@
-package cc.harmo.scmpp;
+package icu.harmo.scmpp;
 
 import net.minecraft.item.map.MapState;
 import net.minecraft.network.packet.s2c.play.MapUpdateS2CPacket;
@@ -14,8 +14,6 @@ public class Noticer {
 
     private static void sendMapPacket(ServerPlayerEntity player, byte[] colors) {
         if (colors.length != 16384) return;
-        player.networkHandler.sendPacket(new MapUpdateS2CPacket(Scmpp.MAP_ID, (byte) 0, true, null,
-                new MapState.UpdateData(0, 0, 128, 128, colors)));
+        player.networkHandler.sendPacket(new MapUpdateS2CPacket(Scmpp.MAP_ID, (byte) 0, true, null, new MapState.UpdateData(0, 0, 128, 128, colors)));
     }
-
 }

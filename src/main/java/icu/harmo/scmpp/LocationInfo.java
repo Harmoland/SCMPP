@@ -1,6 +1,6 @@
-package cc.harmo.scmpp;
+package icu.harmo.scmpp;
 
-import cc.harmo.scmpp.util.Util;
+import icu.harmo.scmpp.util.Util;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

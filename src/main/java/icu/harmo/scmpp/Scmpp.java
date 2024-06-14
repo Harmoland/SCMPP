@@ -1,12 +1,13 @@
-package cc.harmo.scmpp;
+package icu.harmo.scmpp;
 
-import cc.harmo.scmpp.config.ScmppConfig;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import icu.harmo.scmpp.config.ScmppConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.component.type.MapIdComponent;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +17,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Scmpp implements ModInitializer {
-    public static final int MAP_ID = -114514;
+    public static final MapIdComponent MAP_ID = new MapIdComponent(-114514);
     public static final Logger LOGGER = LogManager.getLogger("SlimeChunkMap++");
     public static final File configFile = new File(FabricLoader.getInstance().getConfigDir().toFile(), "scmpp.json");
 

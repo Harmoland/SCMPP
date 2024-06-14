@@ -1,10 +1,11 @@
-package cc.harmo.scmpp;
+package icu.harmo.scmpp;
 
-import cc.harmo.scmpp.config.ScmppConfig;
-import cc.harmo.scmpp.util.SimpleCommandException;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import icu.harmo.scmpp.config.ScmppConfig;
+import icu.harmo.scmpp.util.SimpleCommandException;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.ServerCommandSource;
@@ -13,8 +14,8 @@ import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-import static cc.harmo.scmpp.Scmpp.MAP_ID;
-import static cc.harmo.scmpp.Scmpp.getVersion;
+import static icu.harmo.scmpp.Scmpp.MAP_ID;
+import static icu.harmo.scmpp.Scmpp.getVersion;
 
 public class ScmppCommand {
     public static int scmpp(CommandContext<ServerCommandSource> context, boolean isInitSuccess) throws CommandSyntaxException {
@@ -44,14 +45,14 @@ public class ScmppCommand {
             // 判断玩家背包是否已满
             if (player.getInventory().getEmptySlot() == -1) {
                 MutableText text = Text.literal("[SlimeChunkMap++] ").formatted(Formatting.GRAY);
-                text.append(Text.literal("你的背包已满，请清理背包后再试！").formatted(Formatting.RED));
+                text.append(Text.literal("你的背包已满，请清理背包后再试！").formatted(Formatting.DARK_RED));
                 source.sendFeedback(() -> text, false);
                 return Command.SINGLE_SUCCESS;
             }
             // 给玩家一个地图
             ItemStack itemStack = new ItemStack(Items.FILLED_MAP);
-            itemStack.getOrCreateNbt().putInt("map", MAP_ID);
-
+            //itemStack.getOrCreateNbt().putInt("map", MAP_ID);
+            itemStack.set(DataComponentTypes.MAP_ID, MAP_ID);
             player.giveItemStack(itemStack);
 
             scmppConfig.update(player.getUuid());

@@ -1,7 +1,7 @@
-package cc.harmo.scmpp.config;
+package icu.harmo.scmpp.config;
 
-import cc.harmo.scmpp.Scmpp;
-import cc.harmo.scmpp.util.Util;
+import icu.harmo.scmpp.Scmpp;
+import icu.harmo.scmpp.util.Util;
 
 import java.io.IOException;
 import java.util.HashMap;

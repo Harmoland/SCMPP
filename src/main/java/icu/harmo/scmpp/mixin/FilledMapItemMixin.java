@@ -1,7 +1,9 @@
-package cc.harmo.scmpp.mixin;
+package icu.harmo.scmpp.mixin;
 
-import cc.harmo.scmpp.Noticer;
-import cc.harmo.scmpp.Scmpp;
+import icu.harmo.scmpp.Noticer;
+import icu.harmo.scmpp.Scmpp;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.MapIdComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.ItemStack;
@@ -14,8 +16,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Objects;
-
 @Mixin(FilledMapItem.class)
 public abstract class FilledMapItemMixin extends NetworkSyncedItem {
 
@@ -26,8 +26,12 @@ public abstract class FilledMapItemMixin extends NetworkSyncedItem {
     @Inject(at = @At(value = "HEAD"), method = "inventoryTick(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;IZ)V")
     private void onInventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
         if (!world.isClient && world instanceof ServerWorld serverWorld && entity instanceof ServerPlayerEntity player &&
-                (selected || player.getOffHandStack() == stack) &&
-                Objects.equals(FilledMapItem.getMapId(stack), Scmpp.MAP_ID)) Noticer.noticePlayer(player, serverWorld);
+                (selected || player.getOffHandStack() == stack)) {
+            MapIdComponent mapIdComponent = stack.get(DataComponentTypes.MAP_ID);
+            if (mapIdComponent != null && mapIdComponent.id() == Scmpp.MAP_ID.id()) {
+                Noticer.noticePlayer(player, serverWorld);
+            }
+        }
     }
 
 }

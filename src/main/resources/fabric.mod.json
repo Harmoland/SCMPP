@@ -16,16 +16,16 @@
   "environment": "server",
   "entrypoints": {
     "main": [
-      "cc.harmo.scmpp.Scmpp"
+      "icu.harmo.scmpp.Scmpp"
     ]
   },
   "mixins": [
     "scmpp.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.21",
+    "fabricloader": ">=0.15.11",
     "fabric-api": "*",
-    "minecraft": "~1.20.1",
-    "java": ">=17"
+    "minecraft": "~1.21",
+    "java": ">=21"
   }
 }

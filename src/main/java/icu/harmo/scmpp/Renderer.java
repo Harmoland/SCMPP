@@ -1,7 +1,7 @@
-package cc.harmo.scmpp;
+package icu.harmo.scmpp;
 
-import cc.harmo.scmpp.util.GridPos;
-import cc.harmo.scmpp.util.Util;
+import icu.harmo.scmpp.util.GridPos;
+import icu.harmo.scmpp.util.Util;
 import net.minecraft.block.MapColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;

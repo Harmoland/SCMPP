@@ -1,6 +1,6 @@
-package cc.harmo.scmpp.mixin;
+package icu.harmo.scmpp.mixin;
 
-import cc.harmo.scmpp.Scmpp;
+import icu.harmo.scmpp.Scmpp;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.map.MapState;
 import net.minecraft.registry.DynamicRegistryManager;

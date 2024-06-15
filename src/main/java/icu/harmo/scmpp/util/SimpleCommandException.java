@@ -4,8 +4,7 @@ import com.mojang.brigadier.Message;
 import com.mojang.brigadier.exceptions.CommandExceptionType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
-public class SimpleCommandException
-        implements CommandExceptionType {
+public class SimpleCommandException implements CommandExceptionType {
 
     private final Message message;
 

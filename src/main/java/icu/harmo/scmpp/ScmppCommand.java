@@ -51,7 +51,7 @@ public class ScmppCommand {
             }
             // 给玩家一个地图
             ItemStack itemStack = new ItemStack(Items.FILLED_MAP);
-            //itemStack.getOrCreateNbt().putInt("map", MAP_ID);
+            // itemStack.getOrCreateNbt().putInt("map", MAP_ID);
             itemStack.set(DataComponentTypes.MAP_ID, MAP_ID);
             player.giveItemStack(itemStack);
 
@@ -62,9 +62,7 @@ public class ScmppCommand {
             player.sendMessage(Text.literal("一个史莱姆区块地图已发放到你的背包").formatted(Formatting.GREEN, Formatting.BOLD), true);
         } else {
             MutableText text = Text.literal("[SlimeChunkMap++] ").formatted(Formatting.GRAY);
-            text.append(Text.literal(
-                    "你已经获得过一个史莱姆区块地图了! 请" + scmppConfig.getCoolingTime(player.getUuid()) + "后再来噢"
-            ).formatted(Formatting.LIGHT_PURPLE));
+            text.append(Text.literal("你已经获得过一个史莱姆区块地图了! 请" + scmppConfig.getCoolingTime(player.getUuid()) + "后再来噢").formatted(Formatting.LIGHT_PURPLE));
             source.sendFeedback(() -> text, false);
         }
         return Command.SINGLE_SUCCESS;

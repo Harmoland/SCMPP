@@ -15,7 +15,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 
 public class Util {
-    public final static String encoding = "UTF-8";//文件编码
+    public final static String encoding = "UTF-8";// 文件编码
 
     public static GridPos blockPos2GridPos(BlockPos blockPos) {
         return new GridPos(blockPos.getX() >> 2, blockPos.getZ() >> 2);
@@ -30,8 +30,7 @@ public class Util {
     }
 
     public static boolean hasSlimeSpawnEntry(ServerWorld world, BlockPos pos) {
-        return world.getBiome(pos).value().getSpawnSettings().getSpawnEntries(SpawnGroup.MONSTER).getEntries().
-                stream().anyMatch(it -> it.type == EntityType.SLIME);
+        return world.getBiome(pos).value().getSpawnSettings().getSpawnEntries(SpawnGroup.MONSTER).getEntries().stream().anyMatch(it -> it.type == EntityType.SLIME);
     }
 
     public static String toJson(Object o, Type type) {

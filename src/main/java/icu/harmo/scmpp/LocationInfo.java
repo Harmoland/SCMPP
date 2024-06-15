@@ -17,8 +17,7 @@ public class LocationInfo {
         loc.world = player.getWorld();
         loc.pos = player.getBlockPos();
         if (lastWorld == null || lastPos == null) return true;
-        return !Objects.equals(player.getWorld(), lastWorld) ||
-                !Objects.equals(Util.blockPos2GridPos(player.getBlockPos()), Util.blockPos2GridPos(lastPos));
+        return !Objects.equals(player.getWorld(), lastWorld) || !Objects.equals(Util.blockPos2GridPos(player.getBlockPos()), Util.blockPos2GridPos(lastPos));
     }
 
 }

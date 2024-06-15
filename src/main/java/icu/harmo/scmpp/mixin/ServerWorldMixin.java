@@ -1,7 +1,7 @@
 package icu.harmo.scmpp.mixin;
 
 import icu.harmo.scmpp.Scmpp;
-import net.minecraft.item.FilledMapItem;
+import net.minecraft.component.type.MapIdComponent;
 import net.minecraft.item.map.MapState;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.RegistryKey;
@@ -27,14 +27,13 @@ public abstract class ServerWorldMixin extends World {
         super(properties, registryRef, registryManager, dimensionEntry, profiler, isClient, debugWorld, biomeAccess, maxChainedNeighborUpdates);
     }
 
-    @Inject(at = @At(value = "HEAD"), method = "getMapState(Ljava/lang/String;)Lnet/minecraft/item/map/MapState;", cancellable = true)
-    private void onGetMapState(String id, CallbackInfoReturnable<MapState> cir) {
-        if (Objects.equals(id, FilledMapItem.getMapName(Scmpp.MAP_ID))) cir.setReturnValue(null);
+    @Inject(at = @At(value = "HEAD"), method = "getMapState(Lnet/minecraft/component/type/MapIdComponent;)Lnet/minecraft/item/map/MapState;", cancellable = true)
+    private void onGetMapState(MapIdComponent id, CallbackInfoReturnable<MapState> cir) {
+        if (Objects.equals(id, Scmpp.MAP_ID)) cir.setReturnValue(null);
     }
 
-    @Inject(at = @At(value = "HEAD"), method = "putMapState(Ljava/lang/String;Lnet/minecraft/item/map/MapState;)V", cancellable = true)
-    private void onPutMapState(String id, MapState state, CallbackInfo ci) {
-        if (Objects.equals(id, FilledMapItem.getMapName(Scmpp.MAP_ID))) ci.cancel();
+    @Inject(at = @At(value = "HEAD"), method = "putMapState(Lnet/minecraft/component/type/MapIdComponent;Lnet/minecraft/item/map/MapState;)V", cancellable = true)
+    private void onPutMapState(MapIdComponent id, MapState state, CallbackInfo ci) {
+        if (Objects.equals(id, Scmpp.MAP_ID)) ci.cancel();
     }
-
 }

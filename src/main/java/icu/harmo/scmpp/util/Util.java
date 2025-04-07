@@ -1,6 +1,7 @@
 package icu.harmo.scmpp.util;
 
 import com.google.gson.GsonBuilder;
+import com.google.gson.Strictness;
 import com.google.gson.stream.JsonReader;
 import icu.harmo.scmpp.Scmpp;
 import net.minecraft.entity.EntityType;
@@ -30,7 +31,7 @@ public class Util {
     }
 
     public static boolean hasSlimeSpawnEntry(ServerWorld world, BlockPos pos) {
-        return world.getBiome(pos).value().getSpawnSettings().getSpawnEntries(SpawnGroup.MONSTER).getEntries().stream().anyMatch(it -> it.type == EntityType.SLIME);
+        return world.getBiome(pos).value().getSpawnSettings().getSpawnEntries(SpawnGroup.MONSTER).getEntries().stream().anyMatch(it -> it.value().type() == EntityType.SLIME);
     }
 
     public static String toJson(Object o, Type type) {
@@ -42,7 +43,7 @@ public class Util {
             return null;
         }
         JsonReader jsonReader = new JsonReader(new StringReader(json));
-        jsonReader.setLenient(true);
+        jsonReader.setStrictness(Strictness.LENIENT);
         return new GsonBuilder().setPrettyPrinting().create().fromJson(jsonReader, type);
     }
 
@@ -71,7 +72,7 @@ public class Util {
         }
 
         if (obj == null) {
-            Scmpp.LOGGER.warn("请求写入null对象，已结束本次写入：" + file);
+            Scmpp.LOGGER.warn("请求写入null对象，已结束本次写入：{}", file);
             return;
         }
 
